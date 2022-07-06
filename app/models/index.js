@@ -26,5 +26,5 @@ db.sequelize = sequelize;
 //   foreignKey: 'tutorialId', as: 'tutorial',
 // });
 db.surverymanager = require("./surveymanager.model.js")(sequelize, Sequelize);
-
+db.question = require("./question.model.js")(sequelize, Sequelize);
 module.exports = db;
