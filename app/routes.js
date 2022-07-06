@@ -4,6 +4,7 @@ const AuthenticationController = require('./controllers/AuthenticationController
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy.js')
 const albums = require("./controllers/album.controller.js");
 const songs = require("./controllers/song.controller.js");
+const questions  = require("./controllers/question.controller.js");
 module.exports = (app) => {
 
     app.post('/register', 
@@ -17,6 +18,10 @@ module.exports = (app) => {
     app.post('/surveyapi/surveymanager/login', 
         SurveyManagerController.login
     )
+    //Submit a new Question.....
+    app.post('/surveyapi/question', questions.create)
+    //
+    app.get("/surveyapi/question/survey/:id", questions.findAllBySurveyId)
 
   // Create a new album
   app.post("/album", albums.create);
