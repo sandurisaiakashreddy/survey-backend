@@ -48,7 +48,21 @@ exports.findAll = (req, res) => {
       });
     });
 };
+//find By Survey Managers
+exports.findAllBySurveyManagers = (req, res) => {
+  const surveymanager = req.params.surveymanager;
 
+    Survey.findAll({  where: { surveymanager: surveymanager } })
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while retrieving Survey by surveymanager."
+        });
+      });
+};
 // Find a single Survey with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;

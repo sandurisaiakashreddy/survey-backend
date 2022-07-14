@@ -23,12 +23,13 @@ module.exports = (app) => {
     app.post('/surveyapi/question', questions.create)
     // find question by survey id
     app.get("/surveyapi/question/survey/:id", questions.findAllBySurveyId)
-
+    
     //create new survey 
     app.post('/surveyapi/survey', surveys.create)
 
     // get survey by a survey manager email...
-    //coming soon....
+    
+    app.get('/surveyapi/survey/:surveymanager',surveys.findAllBySurveyManagers)
 
   // Create a new album
   app.post("/album", albums.create);
