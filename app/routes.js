@@ -6,6 +6,7 @@ const albums = require("./controllers/album.controller.js");
 const songs = require("./controllers/song.controller.js");
 const questions  = require("./controllers/question.controller.js");
 const surveys  = require("./controllers/survey.controller.js");
+const answers  = require("./controllers/answer.controller.js");
 module.exports = (app) => {
 
     app.post('/register', 
@@ -30,6 +31,10 @@ module.exports = (app) => {
     // get survey by a survey manager email...
     
     app.get('/surveyapi/survey/:surveymanager',surveys.findAllBySurveyManagers)
+    
+    app.post('/surveyapi/answer', answers.create)
+
+    app.delete("/surveyapi/question/:id", questions.delete);
 
   // Create a new album
   app.post("/album", albums.create);

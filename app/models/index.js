@@ -28,4 +28,5 @@ db.sequelize = sequelize;
 db.surverymanager = require("./surveymanager.model.js")(sequelize, Sequelize);
 db.question = require("./question.model.js")(sequelize, Sequelize);
 db.survey = require("./survey.model.js")(sequelize, Sequelize);
+db.answer = require("./answer.model.js")(sequelize, Sequelize);
 module.exports = db;
